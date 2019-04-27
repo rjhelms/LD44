@@ -68,7 +68,6 @@ public class BaseActor : MonoBehaviour
         if (moveVector.magnitude == 0)
             return;
         float move_angle = Vector2.SignedAngle(Vector2.right, moveVector);
-        Debug.Log(move_angle);
         if (-180 <= move_angle && move_angle < -135)
         {
             direction = Direction.WEST;
