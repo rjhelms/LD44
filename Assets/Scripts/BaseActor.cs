@@ -25,7 +25,7 @@ public class BaseActor : MonoBehaviour
     [SerializeField]
     protected WalkCycle[] walkCycles;
     [SerializeField]
-    protected float animTime = .2f;
+    protected float animTime = .3f;
     [SerializeField]
     protected Direction direction;
     [SerializeField]
@@ -45,7 +45,7 @@ public class BaseActor : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer.sprite = walkCycles[(int)direction].walkSprites[idxSprite];
 
-        nextSpriteChangeTime = Time.time + animTime;
+        nextSpriteChangeTime = Time.time + (animTime / moveSpeed);
 
     }
 
@@ -56,7 +56,7 @@ public class BaseActor : MonoBehaviour
         {
             idxSprite++;
             idxSprite %= walkCycles[(int)direction].walkSprites.Length;
-            nextSpriteChangeTime += animTime;
+            nextSpriteChangeTime += (animTime / moveSpeed);
         }
         UpdateDirection();
         UpdateSprite();

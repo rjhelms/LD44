@@ -345,7 +345,7 @@ MonoBehaviour:
     - {fileID: 2338144833005778781, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
     - {fileID: -7300802230337202286, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
     - {fileID: -6075286355354604478, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
-  animTime: 0.2
+  animTime: 0.3
   direction: 0
   moveSpeed: 2
   moveVector: {x: 0, y: 0}
