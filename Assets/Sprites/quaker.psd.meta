@@ -14,6 +14,42 @@ TextureImporter:
   - first:
       213: -2551310688212056525
     second: quaker_3
+  - first:
+      213: 3012276275521534251
+    second: quaker_4
+  - first:
+      213: -2958397129488588780
+    second: quaker_5
+  - first:
+      213: 8206117540396439265
+    second: quaker_6
+  - first:
+      213: 7484941780892566615
+    second: quaker_7
+  - first:
+      213: -4188166730437310323
+    second: quaker_8
+  - first:
+      213: 3990527126116486541
+    second: quaker_9
+  - first:
+      213: -3617313130824388824
+    second: quaker_10
+  - first:
+      213: -2422287902736596396
+    second: quaker_11
+  - first:
+      213: 5257466166487468808
+    second: quaker_12
+  - first:
+      213: 2338144833005778781
+    second: quaker_13
+  - first:
+      213: -7300802230337202286
+    second: quaker_14
+  - first:
+      213: -6075286355354604478
+    second: quaker_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -121,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ea11f99a59c6234cb163aca3615ee28
+      spriteID: c9194a8e52d9a76498bf1c63bda5e5ea
       internalID: 3479105351925994271
       vertices: []
       indices: 
@@ -129,6 +165,69 @@ TextureImporter:
       weights: []
     - serializedVersion: 2
       name: quaker_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 960
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a1b6e9032071a47b00b030e5ff3bd1
+      internalID: 4611142935854113619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 960
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d652a4580f6aed6488ea156f69aa6681
+      internalID: 1346107375890200373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 960
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd081b6347c10c45b3b2ade09880827
+      internalID: -2551310688212056525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_4
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +241,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d14f275a3c4b3b14dbd5dad2904576ae
-      internalID: 4611142935854113619
+      spriteID: e3dd554d54616c84898547cb0b360486
+      internalID: 3012276275521534251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: quaker_2
+      name: quaker_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 896
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2ed9db002d5c34c9d4808859796fe1
+      internalID: -2958397129488588780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 896
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ce6914f42d1944bbcbeda296da0e14
+      internalID: 8206117540396439265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 896
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092fe0b69786fe54a8c896bedd355b64
+      internalID: 7484941780892566615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_8
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +325,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeddbd8f0f724c74fb156e8d965acc75
-      internalID: 1346107375890200373
+      spriteID: 9fff81a2748194a43b936cfad6aa8e67
+      internalID: -4188166730437310323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: quaker_3
+      name: quaker_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 832
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8fb67246aa8b7c409ee4d43da8c742a
+      internalID: 3990527126116486541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3923ed338a9f9244599ae4dff2461768
+      internalID: -3617313130824388824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 832
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 603eb316b7a2ce6438d405cb480b744c
+      internalID: -2422287902736596396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_12
       rect:
         serializedVersion: 2
         x: 0
@@ -184,8 +409,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a9b99e22eeb6644880d29dca382f52a
-      internalID: -2551310688212056525
+      spriteID: 48c25ca180ff6014190755577685e9f3
+      internalID: 5257466166487468808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 768
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb7607c61cd59849af8a74a9da13ef3
+      internalID: 2338144833005778781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 768
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8312ef911bf2bb749a914cea1d54e0d8
+      internalID: -7300802230337202286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quaker_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 768
+        width: 32
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2b4a3d65b82cf4b8e8c5fa4470bed6
+      internalID: -6075286355354604478
       vertices: []
       indices: 
       edges: []

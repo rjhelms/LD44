@@ -279,7 +279,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2551310688212056525, guid: dea5e42ba04d2cd4fa2a8787d67631a9,
+  m_Sprite: {fileID: 3479105351925994271, guid: dea5e42ba04d2cd4fa2a8787d67631a9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -319,7 +319,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleSprites:
   - {fileID: 3479105351925994271, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
-  - {fileID: 4611142935854113619, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
-  - {fileID: 1346107375890200373, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
-  - {fileID: -2551310688212056525, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
-  animTime: 1
+  - {fileID: 3012276275521534251, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  - {fileID: -4188166730437310323, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  - {fileID: 5257466166487468808, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  walkCycles:
+  - walkSprites:
+    - {fileID: 3479105351925994271, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: 4611142935854113619, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: 1346107375890200373, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: -2551310688212056525, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  - walkSprites:
+    - {fileID: 3012276275521534251, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: -2958397129488588780, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: 8206117540396439265, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: 7484941780892566615, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  - walkSprites:
+    - {fileID: -4188166730437310323, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: 3990527126116486541, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: -3617313130824388824, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: -2422287902736596396, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  - walkSprites:
+    - {fileID: 5257466166487468808, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: 2338144833005778781, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: -7300802230337202286, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+    - {fileID: -6075286355354604478, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  animTime: 0.2
+  rotateTime: 1.4
+  direction: 0
