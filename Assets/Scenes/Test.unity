@@ -177,7 +177,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215688, g: 0.3019608, b: 0.47450984, a: 0}
+  m_BackGroundColor: {r: 0.52156866, g: 0.43921572, b: 0.21176472, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -234,9 +234,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1433823702}
   - component: {fileID: 1433823701}
+  - component: {fileID: 1433823703}
   m_Layer: 0
-  m_Name: quaker_3
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,3 +305,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1433823703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433823700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eeb82ff06091124aa3b99b79b90c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleSprites:
+  - {fileID: 3479105351925994271, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  - {fileID: 4611142935854113619, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  - {fileID: 1346107375890200373, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  - {fileID: -2551310688212056525, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
+  animTime: 1
