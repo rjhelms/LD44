@@ -61,6 +61,7 @@ public class BaseActor : MonoBehaviour
         UpdateDirection();
         UpdateSprite();
         rb.velocity = moveVector * moveSpeed;
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
     }
 
     void UpdateDirection()
