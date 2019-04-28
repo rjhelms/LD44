@@ -14,7 +14,7 @@ public class PlayerController : BaseActor
 
     [Header("Hit Settings")]
     [SerializeField]
-    private bool isInvulnerable;
+    public bool isInvulnerable;
     [SerializeField]
     private float flashTime;
     [SerializeField]

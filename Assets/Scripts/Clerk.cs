@@ -14,6 +14,8 @@ public class Clerk : Enemy
 {
     [SerializeField]
     private Sprite[] alertSprite;
+    [SerializeField]
+    private int hitDamage = 2;
 
     [Header("State Machine Settings")]
     [SerializeField]
@@ -162,7 +164,8 @@ public class Clerk : Enemy
                 for (int i = 0; i < resultCount; i++)
                 {
                     if (results[i].collider.gameObject.layer == 8                 // on the RaycastTarget layer...
-                        && results[i].collider.transform.tag == "Player")         // and is the player...
+                        && results[i].collider.transform.tag == "Player"          // and is the player...
+                        && !results[i].collider.GetComponentInParent<PlayerController>().isInvulnerable) // and they're not invulnurable
                     {
 
                         SetState(ClerkState.ALERT);
@@ -267,7 +270,8 @@ public class Clerk : Enemy
             for (int i = 0; i < resultCount; i++)
             {
                 if (results[i].collider.gameObject.layer == 8                 // on the RaycastTarget layer...
-                    && results[i].collider.transform.tag == "Player")         // and is the player...
+                    && results[i].collider.transform.tag == "Player"          // and is the player...
+                    && !results[i].collider.GetComponentInParent<PlayerController>().isInvulnerable) // and they're not invulnurable 
                 {
                     SetState(ClerkState.ALERT);
                     Seeker seeker = GetComponent<Seeker>();
@@ -319,6 +323,16 @@ public class Clerk : Enemy
                     path = null;
                     SetState(ClerkState.CONFUSED);
                     break;
+            }
+        } else if (collision.gameObject.tag == "Player")
+        {
+            if (state != ClerkState.CONFUSED)
+            {
+                collision.gameObject.GetComponentInParent<BaseActor>().Hit(hitDamage);
+            }
+            if (state == ClerkState.ALERT)
+            {
+                SetState(ClerkState.PATROL);
             }
         }
     }
