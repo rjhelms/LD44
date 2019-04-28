@@ -199,6 +199,12 @@ public class Clerk : Enemy
                 state = ClerkState.PATROL;
                 break;
             case ClerkState.ALERT:
+                if (state != ClerkState.ALERT)
+                {
+                    // only play if *entering* alert
+                    GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
+                    controller.PlaySound(controller.AlertSound);
+                }
                 moveSpeed = stateMoveSpeeds[(int)ClerkState.ALERT];
                 state = ClerkState.ALERT;
                 break;
@@ -306,6 +312,8 @@ public class Clerk : Enemy
     public override void Hit(int damage)
     {
         SetState(ClerkState.DOWN);
+        GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
+        controller.PlaySound(controller.EnemyHitSound);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

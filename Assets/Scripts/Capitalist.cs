@@ -13,6 +13,7 @@ enum CapitalistState
 
 public class Capitalist : Enemy
 {
+
     [Header("State Machine Settings")]
     [SerializeField]
     private CapitalistState state;
@@ -210,6 +211,8 @@ public class Capitalist : Enemy
         nextStateChangeTime = Time.time + downTime;
         updateSprites = false;
         spriteRenderer.sprite = downSprite;
+        GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
+        controller.PlaySound(controller.EnemyHitSound);
     }
 }
 

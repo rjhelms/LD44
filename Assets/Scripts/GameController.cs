@@ -44,11 +44,25 @@ public class GameController : MonoBehaviour
     private Text remainingText;
     private Image mansImage;
     private float currentFadeTime;
+    private AudioSource audioSource;
 
+    public AudioClip PowerupSound;
+    public AudioClip CerealSound;
+    public AudioClip AlertSound;
+    public AudioClip PlayerHitSound;
+    public AudioClip EnemyHitSound;
+    public AudioClip LevelWinSound;
+    public AudioClip LevelLoseSound;
+    public AudioClip ShootSound;
     [SerializeField]
-    private int cerealRemaining;
+    public int cerealRemaining;
 
     public GameState State { get; private set; }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +75,7 @@ public class GameController : MonoBehaviour
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         mansImage = GameObject.Find("MansImage").GetComponent<Image>();
         remainingText = GameObject.Find("RemainingText").GetComponent<Text>();
+        audioSource = GetComponent<AudioSource>();
         levelText.text = "LEVEL " + ScoreManager.Instance.Level;
         fadeCover.color = fadeColor;
         mainCamera = FindObjectOfType<Camera>();

@@ -61,3 +61,12 @@ to do
 - capitalist
 	- improve collision behaviour
 
+
+sounds:
+	- powerup - recorded - y
+	- cereal - recorded - y
+	- alert - recorded - y
+	- player hit - recorded - y
+	- enemy hit - recorded - y
+	- level win - recorded - y
+	- level lose - recorded - y

@@ -34,6 +34,14 @@ public class Cereal : MonoBehaviour
                 FindObjectOfType<GameController>().RemoveCereal(gameObject);
                 found = true;
             }
+            GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
+            if (controller.cerealRemaining > 0)
+            {
+                controller.PlaySound(controller.CerealSound);
+            } else
+            {
+                controller.PlaySound(controller.LevelWinSound);
+            }
             Destroy(gameObject);
             
         }

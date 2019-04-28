@@ -24,6 +24,8 @@ public class PowerUp : MonoBehaviour
             ScoreManager.Instance.AddLife(valueLife);
             ScoreManager.Instance.Mans += valueMans;
             ScoreManager.Instance.Score += valueScore;
+            GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
+            controller.PlaySound(controller.PowerupSound);
             Destroy(gameObject);
         }
     }
