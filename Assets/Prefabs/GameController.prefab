@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 1879746249690665356, guid: a1b264eef7078794daa25d705f7102af, type: 3}
   - {fileID: 4380901829660775958, guid: dc049ea11a9416c4a8d4186ef87f8473, type: 3}
   - {fileID: 6128157776185775888, guid: 4434793757de994428998017df2ca0f2, type: 3}
-  instantiateLevel: 0
+  - {fileID: 1574414793625590270, guid: bf7294e0b1a8be840840ab1fcab63d2d, type: 3}
+  instantiateLevel: 1
   mansUnit: 9
   cerealRemaining: 0
