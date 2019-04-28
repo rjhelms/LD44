@@ -286,6 +286,7 @@ MonoBehaviour:
   moveSpeed: 1
   moveVector: {x: 0, y: 0}
   updateSprites: 1
+  nextWaypointDistance: 0.5
   alertSprite:
   - {fileID: 0}
   - {fileID: -2978653956524333172, guid: 2d861be550250e242ba1d5dce0d9f8fc, type: 3}
@@ -306,7 +307,7 @@ MonoBehaviour:
   lookDistance: 5
   lookFOV: 40
   lookStep: 10
-  lookTime: 0.4
+  lookTime: 0.2
   lookLayerMask:
     serializedVersion: 2
     m_Bits: 768
@@ -314,7 +315,6 @@ MonoBehaviour:
   confuseTime: 2
   downTime: 5
   downSprite: {fileID: 21300000, guid: 39c1935003f16b64c8a35aac8525a1d9, type: 3}
-  nextWaypointDistance: 0.5
 --- !u!50 &1526456543451436490
 Rigidbody2D:
   serializedVersion: 4
