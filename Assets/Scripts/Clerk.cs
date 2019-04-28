@@ -303,4 +303,23 @@ public class Clerk : Enemy
     {
         SetState(ClerkState.DOWN);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // if we hit another enemy, do a wander
+        if (collision.gameObject.tag == "Enemy")
+        {
+            switch (state)
+            {
+                case ClerkState.PATROL:
+                    path = null;
+                    PatrolDone();
+                    break;
+                case ClerkState.ALERT:
+                    path = null;
+                    SetState(ClerkState.CONFUSED);
+                    break;
+            }
+        }
+    }
 }

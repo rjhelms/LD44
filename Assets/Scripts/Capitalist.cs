@@ -169,6 +169,15 @@ public class Capitalist : Enemy
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        // if we're still hitting another enemy, and we got a path back, try again
+        if (collision.gameObject.tag == "Enemy" && path != null)
+        {
+            Wander();
+        }
+    }
+
     private void Wander()
     {
         state = CapitalistState.WANDER;
