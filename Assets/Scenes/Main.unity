@@ -1315,17 +1315,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 995594365, guid: 952d92831a68796488415154cf82cdd9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 731218694, guid: 952d92831a68796488415154cf82cdd9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 731218696, guid: 952d92831a68796488415154cf82cdd9, type: 3}
-      propertyPath: m_Color.a
-      value: 0
+    - target: {fileID: 995594368, guid: 952d92831a68796488415154cf82cdd9, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952d92831a68796488415154cf82cdd9, type: 3}
@@ -1492,17 +1484,17 @@ PrefabInstance:
     - target: {fileID: 7327550547758964408, guid: 36b9b6370f72d5b4787951457e1855fb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1800834
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7327550547758964408, guid: 36b9b6370f72d5b4787951457e1855fb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2909881
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7327550547758964408, guid: 36b9b6370f72d5b4787951457e1855fb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.7163281
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7327550547758964408, guid: 36b9b6370f72d5b4787951457e1855fb,
         type: 3}
@@ -1543,6 +1535,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327550547758964409, guid: 36b9b6370f72d5b4787951457e1855fb,
+        type: 3}
+      propertyPath: isInvulnerable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327550547758964409, guid: 36b9b6370f72d5b4787951457e1855fb,
+        type: 3}
+      propertyPath: flashTime
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b9b6370f72d5b4787951457e1855fb, type: 3}

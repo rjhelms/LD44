@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
 
     private RawImage fadeCover;
     private RawImage lifeBar;
+    private Text levelText;
     private float currentFadeTime;
 
     [SerializeField]
@@ -47,6 +48,8 @@ public class GameController : MonoBehaviour
         State = GameState.STARTING;
         fadeCover = GameObject.Find("FadeCover").GetComponent<RawImage>();
         lifeBar = GameObject.Find("LifeBar").GetComponent<RawImage>();
+        levelText = GameObject.Find("LevelText").GetComponent<Text>();
+        levelText.text = "LEVEL " + ScoreManager.Instance.Level;
         fadeCover.color = fadeColor;
         mainCamera = FindObjectOfType<Camera>();
         canvasUI = GameObject.Find("UICanvas").GetComponent<Canvas>();
@@ -81,6 +84,7 @@ public class GameController : MonoBehaviour
                 fadeCover.color = Color.Lerp(Color.clear, fadeColor, currentFadeTime / fadeTime);
                 if (currentFadeTime >= fadeTime)
                 {
+                    ScoreManager.Instance.Level++;
                     SceneManager.LoadScene("Main");
                 }
                 break;
