@@ -4,10 +4,42 @@ My Life is Currency
 Player is a post-apocalyptic version of the Quaker Oats dude.
 	- most prized posession is a cache of Life brand cereal
 
-In the grim future of 2024, neo-capitalists are attempting to regain control of the earth - but they need currency to do it. Currency like... YOUR LIFE.
 
-Game mechanics:
----------------
-- who knows?
-- side scroller?
-- tower defense?
+It is the year 2024, after the fall of civilization.
+
+The neo-capitalists are attempting to regain control of the earth, using Life brand cereal as currency.
+
+At the Quaker Oats guy, you are duty-bound by your oath to honesty, integrity, and purity to stop them.
+
+Retrieve all the cereal before it is too late!
+
+
+Game mechanics
+--------------
+- search each level for the boxes of Life cereal - number on each level is ceil(lvl * 1.5)
+- avoid the clerks & capitalists
+- cereal is life & projectile
+
+
+Enemies
+-------
+Clerk - obstacle
+	- patrols a predefined part of the math
+	- looks for player, gives chase if found
+	- player has projectile that can incapacitate?
+	
+Capitalist - threat
+	- lurks around cereal caches
+	- watch out for their deadly binding contracts!
+	
+
+to do
+-----
+- actor prefabs
+	- move everything so anchor is centre of terrain collider
+- sprites
+	- fix hat in side views - E gets N hat
+	- fit head bob in N walk (should be 1px, is 2)
+	- improve leg motion in E/W walk
+- clerk
+	- make status icons flash
