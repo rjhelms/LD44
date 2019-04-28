@@ -39,7 +39,6 @@ public class Clerk : Enemy
     [SerializeField]
     private float lookTime;
     [SerializeField]
-    LayerMask lookLayerMask;
     private LayerMask lookLayerMask;
     [SerializeField]
     private Transform lookSource;
