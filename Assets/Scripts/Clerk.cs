@@ -40,6 +40,7 @@ public class Clerk : Enemy
 
     [SerializeField]
     private float nextWaypointDistance = 0.5f;
+
     private Path path;
     private int currentWaypoint = 0;
 
@@ -107,8 +108,40 @@ public class Clerk : Enemy
         }
         if (!reachedEndOfPath)
         {
-            path = null;
             moveVector = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
+        } else
+        {
+            // do a raycast to see if we can still see player
+            Vector2 lookDirection = ((Vector2)GameObject.FindGameObjectWithTag("Player").transform.position
+                                        + new Vector2(0.5f, 1.0f)   // ugly offset to look at player's CoM
+                                        - (Vector2)lookSource.position).normalized;
+            Debug.DrawRay(lookSource.position, lookDirection, Color.white, 1f);
+            List<RaycastHit2D> results = new List<RaycastHit2D>();
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.SetLayerMask(lookLayerMask);
+            bool foundPlayer = false;
+            // look directly at the player, at half of the normal look distance
+            int resultCount = Physics2D.Raycast(lookSource.position, lookDirection, filter, results, lookDistance / 2);
+            if (resultCount > 0)
+            {
+                for (int i = 0; i < resultCount; i++)
+                {
+                    if (results[i].collider.gameObject.layer == 8                 // on the RaycastTarget layer...
+                        && results[i].collider.transform.parent.tag == "Player")  // and is the player...
+                    {
+
+                        SetState(ClerkState.ALERT);
+                        Seeker seeker = GetComponent<Seeker>();
+                        seeker.StartPath(transform.position, results[i].collider.transform.position, OnPathComplete);
+                        foundPlayer = true;
+                        break;
+                    }
+                }
+            }
+            if (!foundPlayer)
+            {
+                SetState(ClerkState.CONFUSED);
+            }
         }
     }
 
@@ -181,16 +214,13 @@ public class Clerk : Enemy
         {
             for (int i = 0; i < resultCount; i++)
             {
-                if (results[i].fraction > 0                                   // not our own collider...
-                    && results[i].collider.gameObject.layer == 8              // and on the RaycastTarget layer...
+                if (results[i].collider.gameObject.layer == 8                 // on the RaycastTarget layer...
                     && results[i].collider.transform.parent.tag == "Player")  // and is the player...
                 {
 
-                    SetState(ClerkState.ALERT);
                     Seeker seeker = GetComponent<Seeker>();
                     seeker.StartPath(transform.position, results[i].collider.transform.position, OnPathComplete);
                     break;
-
                 }
             }
         }

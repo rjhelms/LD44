@@ -283,7 +283,7 @@ MonoBehaviour:
     - {fileID: -358603097098464898, guid: 9d2a54293d198a246b86a69a651bd33c, type: 3}
   animTime: 0.3
   direction: 0
-  moveSpeed: 0
+  moveSpeed: 1
   moveVector: {x: 0, y: 0}
   state: 0
   alertSprite:
