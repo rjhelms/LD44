@@ -1,6 +1,6 @@
 ﻿using Pathfinding;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 enum ClerkState
 {
     PATROL,
@@ -130,7 +130,8 @@ public class Clerk : Enemy
         if (!reachedEndOfPath)
         {
             moveVector = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
-        } else
+        }
+        else
         {
             // do a raycast to see if we can still see player
             Vector2 lookDirection = ((Vector2)GameObject.FindGameObjectWithTag("Player").transform.position
@@ -156,6 +157,10 @@ public class Clerk : Enemy
                         seeker.StartPath(transform.position, results[i].collider.transform.position, OnPathComplete);
                         foundPlayer = true;
                         break;
+                    }
+                    else if (results[i].collider.gameObject.layer == 9)
+                    {
+                        break; // stop on terrain
                     }
                 }
             }
@@ -244,6 +249,10 @@ public class Clerk : Enemy
                     Seeker seeker = GetComponent<Seeker>();
                     seeker.StartPath(transform.position, results[i].collider.transform.position, OnPathComplete);
                     break;
+                }
+                else if (results[i].collider.gameObject.layer == 9)
+                {
+                    break; // stop on terrain
                 }
             }
         }
