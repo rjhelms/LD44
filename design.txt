@@ -41,5 +41,12 @@ to do
 	- fix hat in side views - E gets N hat
 	- fit head bob in N walk (should be 1px, is 2)
 	- improve leg motion in E/W walk
+
 - clerk
 	- make status icons flash
+	- collision handling
+	
+
+- capitalist
+	- improve collision behaviour
+	- implement projectile damane - both hit and receive
