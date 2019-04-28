@@ -50,6 +50,7 @@ MonoBehaviour:
   lifeWarningColor: {r: 0.6745098, g: 0.19607843, b: 0.19607843, a: 1}
   levels:
   - {fileID: 1879746249690665356, guid: a1b264eef7078794daa25d705f7102af, type: 3}
-  instantiateLevel: 1
+  - {fileID: 4380901829660775958, guid: dc049ea11a9416c4a8d4186ef87f8473, type: 3}
+  instantiateLevel: 0
   mansUnit: 9
   cerealRemaining: 0

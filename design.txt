@@ -16,7 +16,19 @@ Retrieve all the cereal before it is too late!
 
 Game mechanics
 --------------
-- search each level for the boxes of Life cereal - number on each level is ceil(lvl * 1.5)
+- search each level for the boxes of Life cereal - number on each level is (lvl + 1)
+	- one capitalist per box of serial
+	- clerks: floor(lvl * 2)
+	- pouches: ceil(lvl * 0.8)
+	- mans: on lvls 3 and 5
+	
+level	cereal	capitalists	clerks	pouches	mans
+1		2		2			2		1		0
+2		3		3			4		2		0
+3		4		4			6		2		1
+4		5		5			8		3		0
+5		6		6			10		4		1
+
 - avoid the clerks & capitalists
 - cereal is life & projectile
 
