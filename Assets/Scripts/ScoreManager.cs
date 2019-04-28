@@ -7,7 +7,7 @@ public class ScoreManager : Singleton<ScoreManager>
     protected ScoreManager() { }
 
     public int Score = 0;
-
+    public int Mans = 3;
     public int Life
     {
         get
@@ -36,6 +36,7 @@ public class ScoreManager : Singleton<ScoreManager>
     public void Reset()
     {
         MaxLife = 20;
+        Mans = 3;
         Score = 0;
         Life = MaxLife;
         Level = 1;
