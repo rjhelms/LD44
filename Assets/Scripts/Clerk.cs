@@ -104,7 +104,7 @@ public class Clerk : Enemy
                 moveVector = Vector2.zero;
                 if (Time.time > nextStateChangeTime)
                 {
-                    foreach (Collider c in GetComponentsInChildren<Collider>())
+                    foreach (Collider2D c in GetComponentsInChildren<Collider2D>())
                     {
                         c.enabled = true;
                     }
