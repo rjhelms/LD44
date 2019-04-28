@@ -20,6 +20,7 @@ public class WalkCycle
 
 public class BaseActor : MonoBehaviour
 {
+    [Header("Base Actor Settings")]
     [SerializeField]
     protected Sprite[] idleSprites;
     [SerializeField]

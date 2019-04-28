@@ -285,21 +285,24 @@ MonoBehaviour:
   direction: 0
   moveSpeed: 1
   moveVector: {x: 0, y: 0}
-  state: 0
   alertSprite:
   - {fileID: 0}
   - {fileID: -2978653956524333172, guid: 2d861be550250e242ba1d5dce0d9f8fc, type: 3}
   - {fileID: -299690340437171572, guid: 2d861be550250e242ba1d5dce0d9f8fc, type: 3}
   - {fileID: 0}
+  state: 0
   alertRenderer: {fileID: 707529276}
   stateMoveSpeeds:
   - 1
-  - 2
+  - 1.9
   - 1
   - 0
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   lookCurrentAngle: 0
   lookDistance: 5
-  lookFOV: 45
+  lookFOV: 40
   lookStep: 10
   lookTime: 0.4
   lookLayerMask:

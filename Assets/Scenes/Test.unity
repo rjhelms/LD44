@@ -335,8 +335,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1526456543451436492, guid: acc0b67a73745b9468a4a99e5d7cdbeb,
         type: 3}
-      propertyPath: moveSpeed
-      value: 1
+      propertyPath: PatrolPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526456543451436492, guid: acc0b67a73745b9468a4a99e5d7cdbeb,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526456543451436492, guid: acc0b67a73745b9468a4a99e5d7cdbeb,
+        type: 3}
+      propertyPath: PatrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1877149164}
+    - target: {fileID: 1526456543451436492, guid: acc0b67a73745b9468a4a99e5d7cdbeb,
+        type: 3}
+      propertyPath: PatrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 909001893}
+    - target: {fileID: 1526456543451436492, guid: acc0b67a73745b9468a4a99e5d7cdbeb,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1877149164}
+    - target: {fileID: 1526456543451436492, guid: acc0b67a73745b9468a4a99e5d7cdbeb,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 909001893}
+    - target: {fileID: 1526456543451436492, guid: acc0b67a73745b9468a4a99e5d7cdbeb,
+        type: 3}
+      propertyPath: stateMoveSpeeds.Array.data[1]
+      value: 1.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc0b67a73745b9468a4a99e5d7cdbeb, type: 3}

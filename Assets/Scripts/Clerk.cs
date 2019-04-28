@@ -12,15 +12,22 @@ enum ClerkState
 public class Clerk : Enemy
 {
     [SerializeField]
+    private Sprite[] alertSprite;
+
+    [Header("State Machine Settings")]
+    [SerializeField]
     private ClerkState state;
     [SerializeField]
-    private Sprite[] alertSprite;
-    [SerializeField]
     private SpriteRenderer alertRenderer;
-
     [SerializeField]
     private float[] stateMoveSpeeds;
 
+    [Header("Patrol Settings")]
+    [SerializeField]
+    private Transform[] patrolPoints;
+    private int currentPatrolPoint;
+
+    [Header("Alert Settings")]
     [SerializeField]
     private float lookCurrentAngle;
     [SerializeField]
@@ -36,6 +43,7 @@ public class Clerk : Enemy
     [SerializeField]
     Transform lookSource;
 
+    [Header("Confused Settings")]
     [SerializeField]
     float ConfuseTime;
 
@@ -52,6 +60,7 @@ public class Clerk : Enemy
     {
         nextLookTime = Time.time + nextLookTime;
         base.Start();
+        StartPatrol();
     }
 
     protected override void Update()
@@ -61,6 +70,10 @@ public class Clerk : Enemy
             case ClerkState.PATROL:
                 if (Time.time >= nextLookTime)
                     Look();
+                if (path != null)
+                {
+                    Patrol();
+                }
                 break;
             case ClerkState.ALERT:
                 if (path != null)
@@ -161,6 +174,7 @@ public class Clerk : Enemy
         {
             case ClerkState.PATROL:
                 moveSpeed = stateMoveSpeeds[(int)ClerkState.PATROL];
+                StartPatrol();
                 state = ClerkState.PATROL;
                 break;
             case ClerkState.ALERT:
@@ -241,5 +255,51 @@ public class Clerk : Enemy
         Debug.Log("Yay, we got a path back. Did it have an error? " + p.error);
         path = p;
         currentWaypoint = 0;
+    }
+
+    private void StartPatrol()
+    {
+        Seeker seeker = GetComponent<Seeker>();
+        seeker.StartPath(transform.position, patrolPoints[currentPatrolPoint].position, OnPathComplete);
+    }
+
+    private void Patrol()
+    {
+        bool reachedEndOfPath = false;
+        float distanceToWaypoint;
+        while (true)
+        {
+            distanceToWaypoint = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distanceToWaypoint < nextWaypointDistance)
+            {
+                if (currentWaypoint + 1 < path.vectorPath.Count)
+                {
+                    currentWaypoint++;
+                }
+                else
+                {
+                    SetState(ClerkState.PATROL);
+                    reachedEndOfPath = true;
+                    path = null; // get rid of the path to be sure
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+        if (!reachedEndOfPath)
+        {
+            moveVector = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
+        }
+        else
+        {
+            // increment patrol point
+            currentPatrolPoint++;
+            currentPatrolPoint %= patrolPoints.Length;
+            // start seeking new path
+            StartPatrol();
+        }
     }
 }
