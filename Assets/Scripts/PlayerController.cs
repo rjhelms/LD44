@@ -2,7 +2,7 @@
 
 public class PlayerController : BaseActor
 {
-    [Header("Player Settings")]
+    [Header("Projectile Settings")]
     [SerializeField]
     private GameObject ProjectilePrefab;
     [SerializeField]

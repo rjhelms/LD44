@@ -51,6 +51,10 @@ public class Projectile : MonoBehaviour
             Debug.Log("Hit " + collision.gameObject);
             collision.gameObject.GetComponentInParent<BaseActor>().Hit(damage);
             Destroy(gameObject);
+        } else if (collision.gameObject.layer == 9)
+        {
+            // just destroy if we hit terrrain
+            Destroy(gameObject);
         }
     }
 }

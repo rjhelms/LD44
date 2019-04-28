@@ -35,15 +35,13 @@ public class GameController : MonoBehaviour
 
     public GameState State { get; private set; }
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0;
         State = GameState.STARTING;
         fadeCover = GameObject.Find("FadeCover").GetComponent<RawImage>();
+        fadeCover.color = fadeColor;
         mainCamera = FindObjectOfType<Camera>();
         canvasUI = GameObject.Find("UICanvas").GetComponent<Canvas>();
     }
@@ -75,7 +73,7 @@ public class GameController : MonoBehaviour
                 fadeCover.color = Color.Lerp(Color.clear, fadeColor, currentFadeTime / fadeTime);
                 if (currentFadeTime >= fadeTime)
                 {
-                    SceneManager.LoadScene("test");
+                    SceneManager.LoadScene("Main");
                 }
                 break;
         }

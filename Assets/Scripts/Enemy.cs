@@ -15,6 +15,11 @@ public class Enemy : BaseActor
     protected void OnPathComplete(Path p)
     {
         Debug.Log("Yay, we got a path back. Did it have an error? " + p.error);
+        if (p.error)
+        {
+            Debug.Log(p.errorLog);
+            throw new UnityException(gameObject + " failed to find path!");
+        }
         path = p;
         currentWaypoint = 0;
     }
@@ -56,4 +61,5 @@ public class Enemy : BaseActor
 
     protected virtual void PatrolDone()
     { }
+
 }
