@@ -136,7 +136,7 @@ public class Clerk : Enemy
             Vector2 lookDirection = ((Vector2)GameObject.FindGameObjectWithTag("Player").transform.position
                                         + new Vector2(0.5f, 1.0f)   // ugly offset to look at player's CoM
                                         - (Vector2)lookSource.position).normalized;
-            Debug.DrawRay(lookSource.position, lookDirection, Color.white, 1f);
+            Debug.DrawRay(lookSource.position, lookDirection, Color.white, 0.5f);
             List<RaycastHit2D> results = new List<RaycastHit2D>();
             ContactFilter2D filter = new ContactFilter2D();
             filter.SetLayerMask(lookLayerMask);
@@ -226,7 +226,7 @@ public class Clerk : Enemy
         rotatedVector.y = lookVector.x * s + lookVector.y * c;
         rotatedVector = rotatedVector.normalized;
 
-        Debug.DrawLine(lookSource.position, lookSource.position + (Vector3)rotatedVector);
+        Debug.DrawLine(lookSource.position, lookSource.position + ((Vector3)rotatedVector * lookDistance), Color.yellow, 0.5f);
 
         lookCurrentAngle += lookStep;
         if (Mathf.Abs(lookCurrentAngle) >= lookFOV)
