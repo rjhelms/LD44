@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
     private RawImage lifeBar;
     private Text levelText;
     private Text scoreText;
+    private Text remainingText;
     private Image mansImage;
     private float currentFadeTime;
 
@@ -59,6 +60,7 @@ public class GameController : MonoBehaviour
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         mansImage = GameObject.Find("MansImage").GetComponent<Image>();
+        remainingText = GameObject.Find("RemainingText").GetComponent<Text>();
         levelText.text = "LEVEL " + ScoreManager.Instance.Level;
         fadeCover.color = fadeColor;
         mainCamera = FindObjectOfType<Camera>();
@@ -159,6 +161,7 @@ public class GameController : MonoBehaviour
         }
         scoreText.text = ScoreManager.Instance.Score.ToString();
         mansImage.rectTransform.sizeDelta = new Vector2(mansUnit * ScoreManager.Instance.Mans, 8);
+        remainingText.text = cerealRemaining + " REMAINING";
         if (ScoreManager.Instance.Life <= 5)
         {
             lifeBar.color = lifeWarningColor;
