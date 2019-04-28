@@ -107,6 +107,7 @@ public class Capitalist : Enemy
                         c.enabled = true;
                     }
                     updateSprites = true;
+                    state = CapitalistState.WANDER;
                     Wander();
                 }
                 break;
