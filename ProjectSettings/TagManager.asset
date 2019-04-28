@@ -19,7 +19,7 @@ TagManager:
   - RaycastTarget
   - Terrain
   - Projectile
-  - 
+  - NoRender
   - 
   - 
   - 
