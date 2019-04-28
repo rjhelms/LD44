@@ -38,7 +38,23 @@ public class ScoreManager : Singleton<ScoreManager>
         MaxLife = 20;
         Mans = 3;
         Score = 0;
-        Life = MaxLife;
+        life = MaxLife;
         Level = 1;
+    }
+
+    public void Die()
+    {
+        MaxLife = 20;
+        life = MaxLife;
+        Mans -= 1;
+    }
+
+    public void AddLife(int value)
+    {
+        life += value;
+        if (life > MaxLife)
+        {
+            MaxLife = life;
+        }
     }
 }
