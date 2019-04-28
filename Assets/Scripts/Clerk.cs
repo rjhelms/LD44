@@ -226,7 +226,7 @@ public class Clerk : Enemy
                 if (results[i].collider.gameObject.layer == 8                 // on the RaycastTarget layer...
                     && results[i].collider.transform.parent.tag == "Player")  // and is the player...
                 {
-
+                    SetState(ClerkState.ALERT);
                     Seeker seeker = GetComponent<Seeker>();
                     seeker.StartPath(transform.position, results[i].collider.transform.position, OnPathComplete);
                     break;
