@@ -304,7 +304,6 @@ public class Clerk : Enemy
                 }
                 else
                 {
-                    SetState(ClerkState.PATROL);
                     reachedEndOfPath = true;
                     path = null; // get rid of the path to be sure
                     break;
