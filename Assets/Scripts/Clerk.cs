@@ -155,7 +155,7 @@ public class Clerk : Enemy
         {
             // do a raycast to see if we can still see player
             Vector2 lookDirection = ((Vector2)GameObject.FindGameObjectWithTag("Player").transform.position
-                                        + new Vector2(0f, 0.65f)   // ugly offset to look at player's CoM
+                                        + new Vector2(0f, 0.75f)   // ugly offset to look at player's CoM
                                         - (Vector2)lookSource.position).normalized;
             Debug.DrawRay(lookSource.position, lookDirection * lookDistance / 2, Color.white, 0.5f);
             List<RaycastHit2D> results = new List<RaycastHit2D>();
@@ -169,7 +169,7 @@ public class Clerk : Enemy
                 for (int i = 0; i < resultCount; i++)
                 {
                     if (results[i].collider.gameObject.layer == 8                 // on the RaycastTarget layer...
-                        && results[i].collider.transform.parent.tag == "Player")  // and is the player...
+                        && results[i].collider.transform.tag == "Player")         // and is the player...
                     {
 
                         SetState(ClerkState.ALERT);
@@ -274,7 +274,7 @@ public class Clerk : Enemy
             for (int i = 0; i < resultCount; i++)
             {
                 if (results[i].collider.gameObject.layer == 8                 // on the RaycastTarget layer...
-                    && results[i].collider.transform.parent.tag == "Player")  // and is the player...
+                    && results[i].collider.transform.tag == "Player")         // and is the player...
                 {
                     SetState(ClerkState.ALERT);
                     Seeker seeker = GetComponent<Seeker>();

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2387597760965988870}
   m_Layer: 8
   m_Name: RaycastTarget
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,9 +204,12 @@ MonoBehaviour:
   direction: 0
   moveSpeed: 2
   moveVector: {x: 0, y: 0}
+  updateSprites: 1
   ProjectilePrefab: {fileID: 4749138653372906413, guid: 8a0a943d6f2ccd440b61c8456df469c9,
     type: 3}
   ProjectileSource: {fileID: 1163986574}
+  ProjectileLifeCost: 1
+  ProjectileLifeMin: 5
 --- !u!50 &7327550547758964406
 Rigidbody2D:
   serializedVersion: 4

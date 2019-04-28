@@ -301,6 +301,7 @@ MonoBehaviour:
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   lookCurrentAngle: 0
   lookDistance: 5
   lookFOV: 40
