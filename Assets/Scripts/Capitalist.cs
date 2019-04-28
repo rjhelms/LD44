@@ -20,6 +20,8 @@ public class Capitalist : Enemy
     [Header("Patrol Settings")]
     [SerializeField]
     private GameObject targetCereal;
+    [SerializeField]
+    private bool foundCereal;
 
     [Header("Wander Settings")]
     [SerializeField]
@@ -60,13 +62,14 @@ public class Capitalist : Enemy
         switch (state)
         {
             case CapitalistState.PATROL:
-                if (targetCereal == null)
+                if (!foundCereal)
                 {
                     GameObject[] candidateCereals = GameObject.FindGameObjectsWithTag("Finish");
                     if (candidateCereals.Length > 0)
                     {
                         int idxChosenCereal = Random.Range(0, candidateCereals.Length);
                         targetCereal = candidateCereals[idxChosenCereal];
+                        foundCereal = true;
                         Seeker seeker = GetComponent<Seeker>();
                         seeker.StartPath(transform.position, targetCereal.transform.position, OnPathComplete);
                     }
@@ -125,6 +128,7 @@ public class Capitalist : Enemy
         {
             state = CapitalistState.PATROL;
             targetCereal = null;
+            foundCereal = false;
         }
     }
 
