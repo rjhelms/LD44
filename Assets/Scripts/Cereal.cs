@@ -10,6 +10,8 @@ public class Cereal : MonoBehaviour
     [SerializeField]
     private int valueScore = 100;
 
+    private bool found = false;
+
     private void Start()
     {
         FindObjectOfType<GameController>().RegisterCereal(gameObject);
@@ -27,8 +29,13 @@ public class Cereal : MonoBehaviour
         {
             ScoreManager.Instance.Life += valueLife;
             ScoreManager.Instance.Score += valueScore;
+            if (!found)
+            {
+                FindObjectOfType<GameController>().RemoveCereal(gameObject);
+                found = true;
+            }
             Destroy(gameObject);
-            FindObjectOfType<GameController>().RemoveCereal(gameObject);
+            
         }
     }
 }
