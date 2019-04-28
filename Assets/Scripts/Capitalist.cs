@@ -166,7 +166,7 @@ public class Capitalist : Enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // if we hit another enemy, do a wander
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && state != CapitalistState.DOWN)
         {
             Wander();
             wanderWait = Time.time + Random.Range(0, maxWanderWaitTime);
@@ -176,7 +176,7 @@ public class Capitalist : Enemy
     private void OnCollisionStay2D(Collision2D collision)
     {
         // if we're still hitting another enemy, and we got a path back, try again
-        if (collision.gameObject.tag == "Enemy" && Time.time > wanderWait && path != null)
+        if (collision.gameObject.tag == "Enemy" && Time.time > wanderWait && path != null && state != CapitalistState.DOWN)
         {
             Wander();
             wanderWait = Time.time + Random.Range(0, maxWanderWaitTime);
@@ -185,11 +185,14 @@ public class Capitalist : Enemy
 
     private void Wander()
     {
-        state = CapitalistState.WANDER;
-        Seeker seeker = GetComponent<Seeker>();
-        Vector2 wanderVector = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        wanderVector *= wanderAmount;
-        seeker.StartPath(transform.position, transform.position + (Vector3)wanderVector, OnPathComplete);
+        if (state != CapitalistState.DOWN)
+        {
+            state = CapitalistState.WANDER;
+            Seeker seeker = GetComponent<Seeker>();
+            Vector2 wanderVector = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            wanderVector *= wanderAmount;
+            seeker.StartPath(transform.position, transform.position + (Vector3)wanderVector, OnPathComplete);
+        }
     }
 
     public override void Hit(int damage)
