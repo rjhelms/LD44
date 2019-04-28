@@ -7,6 +7,10 @@ public class PlayerController : BaseActor
     private GameObject ProjectilePrefab;
     [SerializeField]
     private Transform ProjectileSource;
+    [SerializeField]
+    private int ProjectileLifeCost = 1;
+    [SerializeField]
+    private int ProjectileLifeMin = 5;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -57,13 +61,24 @@ public class PlayerController : BaseActor
 
     private void FireProjectile()
     {
+        // don't fire projectile if it would go below min life - you can't die from shooting cereal
+        if (ScoreManager.Instance.Life < ProjectileLifeMin)
+        {
+            return;
+        }
+
+        ScoreManager.Instance.Life -= ProjectileLifeCost;
+
         GameObject objProjectile = Instantiate(ProjectilePrefab, ProjectileSource.position, Quaternion.identity);
         Projectile Projectile = objProjectile.GetComponent<Projectile>();
+
         Projectile.parent = gameObject;
+
         if (moveVector.magnitude > 0)
         {
             Projectile.moveVector = moveVector.normalized;
-        } else
+        }
+        else
         {
             switch (direction)
             {
