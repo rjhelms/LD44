@@ -23,9 +23,13 @@ public class Clerk : Enemy
     [SerializeField]
     private float[] stateMoveSpeeds;
 
+    private float nextStateChangeTime;
+    private float nextLookTime;
+
     [Header("Patrol Settings")]
     [SerializeField]
     private Transform[] patrolPoints;
+
     private int currentPatrolPoint;
 
     [Header("Alert Settings")]
@@ -46,11 +50,15 @@ public class Clerk : Enemy
 
     [Header("Confused Settings")]
     [SerializeField]
-    float ConfuseTime;
+    float confuseTime;
 
-    private float nextStateChangeTime;
-    private float nextLookTime;
+    [Header("Down Settings")]
+    [SerializeField]
+    float downTime;
+    [SerializeField]
+    Sprite downSprite;
 
+    [Header("Pathfinding Settings")]
     [SerializeField]
     private float nextWaypointDistance = 0.5f;
 
@@ -95,11 +103,14 @@ public class Clerk : Enemy
             case ClerkState.DOWN:
                 moveVector = Vector2.zero;
                 if (Time.time > nextStateChangeTime)
-                    foreach (Collider c in GetComponents<Collider>())
+                {
+                    foreach (Collider c in GetComponentsInChildren<Collider>())
                     {
                         c.enabled = true;
                     }
-                SetState(ClerkState.PATROL);
+                    updateSprites = true;
+                    SetState(ClerkState.PATROL);
+                }
                 break;
             default:
                 SetState(ClerkState.PATROL);
@@ -196,16 +207,18 @@ public class Clerk : Enemy
                 state = ClerkState.ALERT;
                 break;
             case ClerkState.CONFUSED:
-                nextStateChangeTime = Time.time + ConfuseTime;
+                nextStateChangeTime = Time.time + confuseTime;
                 moveSpeed = stateMoveSpeeds[(int)ClerkState.CONFUSED];
                 state = ClerkState.CONFUSED;
                 break;
             case ClerkState.DOWN:
-                nextStateChangeTime = Time.time + ConfuseTime;
+                updateSprites = false;
+                spriteRenderer.sprite = downSprite;
+                nextStateChangeTime = Time.time + downTime;
                 moveSpeed = stateMoveSpeeds[(int)ClerkState.DOWN];
-                foreach (Collider c in GetComponents<Collider>())
+                foreach (Collider2D c in GetComponentsInChildren<Collider2D>())
                 {
-                    c.enabled = true;
+                    c.enabled = false;
                 }
                 state = ClerkState.DOWN;
                 break;
@@ -328,5 +341,10 @@ public class Clerk : Enemy
             // start seeking new path
             StartPatrol();
         }
+    }
+
+    public override void Hit(int damage)
+    {
+        SetState(ClerkState.DOWN);
     }
 }

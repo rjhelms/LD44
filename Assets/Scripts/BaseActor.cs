@@ -33,9 +33,12 @@ public class BaseActor : MonoBehaviour
     protected float moveSpeed;
     [SerializeField]
     protected Vector2 moveVector = new Vector2(0f, 0f);
+    [SerializeField]
+    protected bool updateSprites = true;
+
+    protected SpriteRenderer spriteRenderer;
 
     float nextSpriteChangeTime;
-    SpriteRenderer spriteRenderer;
     int idxSprite = 0;
     protected Rigidbody2D rb;
 
@@ -60,7 +63,10 @@ public class BaseActor : MonoBehaviour
             nextSpriteChangeTime += (animTime / moveSpeed);
         }
         UpdateDirection();
-        UpdateSprite();
+        if (updateSprites)
+        {
+            UpdateSprite();
+        }
         rb.velocity = moveVector * moveSpeed;
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
     }
@@ -98,10 +104,16 @@ public class BaseActor : MonoBehaviour
         {
             spriteRenderer.sprite = idleSprites[(int)direction];
             idxSprite = 0;
+            Debug.Log(gameObject + " idle");
         }
         else
         {
             spriteRenderer.sprite = walkCycles[(int)direction].walkSprites[idxSprite];
         }
+    }
+
+    public virtual void Hit(int damage)
+    {
+
     }
 }
