@@ -36,6 +36,10 @@ public class Clerk : Enemy
     [SerializeField]
     Transform lookSource;
 
+    [SerializeField]
+    float ConfuseTime;
+
+    private float nextStateChangeTime;
     private float nextLookTime;
 
     [SerializeField]
@@ -69,6 +73,10 @@ public class Clerk : Enemy
                 }
                 break;
             case ClerkState.CONFUSED:
+                moveVector = Vector2.zero;
+                direction = Direction.SOUTH;
+                if (Time.time > nextStateChangeTime)
+                    SetState(ClerkState.PATROL);
                 break;
             default:
                 SetState(ClerkState.PATROL);
@@ -160,6 +168,7 @@ public class Clerk : Enemy
                 state = ClerkState.ALERT;
                 break;
             case ClerkState.CONFUSED:
+                nextStateChangeTime = Time.time + ConfuseTime;
                 moveSpeed = stateMoveSpeeds[(int)ClerkState.CONFUSED];
                 state = ClerkState.CONFUSED;
                 break;

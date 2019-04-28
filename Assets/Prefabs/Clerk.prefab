@@ -301,11 +301,12 @@ MonoBehaviour:
   lookDistance: 5
   lookFOV: 45
   lookStep: 10
-  lookTime: 0.5
+  lookTime: 0.4
   lookLayerMask:
     serializedVersion: 2
     m_Bits: 768
   lookSource: {fileID: 964089178}
+  ConfuseTime: 2
   nextWaypointDistance: 0.5
 --- !u!50 &1526456543451436490
 Rigidbody2D:
