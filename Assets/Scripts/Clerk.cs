@@ -40,8 +40,9 @@ public class Clerk : Enemy
     private float lookTime;
     [SerializeField]
     LayerMask lookLayerMask;
+    private LayerMask lookLayerMask;
     [SerializeField]
-    Transform lookSource;
+    private Transform lookSource;
 
     [Header("Confused Settings")]
     [SerializeField]
@@ -58,8 +59,8 @@ public class Clerk : Enemy
 
     protected override void Start()
     {
-        nextLookTime = Time.time + nextLookTime;
         base.Start();
+        nextLookTime = Time.time + nextLookTime;
         StartPatrol();
     }
 
