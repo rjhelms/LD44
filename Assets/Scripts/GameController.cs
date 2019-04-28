@@ -26,8 +26,13 @@ public class GameController : MonoBehaviour
     private float fadeTime;
     [SerializeField]
     private Color fadeColor;
+    [SerializeField]
+    private Color lifeDefaultColor;
+    [SerializeField]
+    private Color lifeWarningColor;
 
     private RawImage fadeCover;
+    private RawImage lifeBar;
     private float currentFadeTime;
 
     [SerializeField]
@@ -41,14 +46,17 @@ public class GameController : MonoBehaviour
         Time.timeScale = 0;
         State = GameState.STARTING;
         fadeCover = GameObject.Find("FadeCover").GetComponent<RawImage>();
+        lifeBar = GameObject.Find("LifeBar").GetComponent<RawImage>();
         fadeCover.color = fadeColor;
         mainCamera = FindObjectOfType<Camera>();
         canvasUI = GameObject.Find("UICanvas").GetComponent<Canvas>();
+        UpdateUI();
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateUI();
         switch (State)
         {
             case GameState.STARTING:
@@ -81,7 +89,15 @@ public class GameController : MonoBehaviour
 
     void UpdateUI()
     {
-        canvasUI.GetComponent<CanvasScaler>().scaleFactor = mainCamera.GetComponent<PixelPerfectCamera>().pixelRatio;
+        canvasUI.GetComponent<CanvasScaler>().scaleFactor = mainCamera.GetComponent<PixelPerfectCamera>().pixelRatio * 2;
+        lifeBar.rectTransform.localScale = new Vector3(ScoreManager.Instance.Life, 1, 1);
+        if (ScoreManager.Instance.Life <= 5)
+        {
+            lifeBar.color = lifeWarningColor;
+        } else
+        {
+            lifeBar.color = lifeDefaultColor;
+        }
     }
 
     public void RegisterCereal(GameObject cereal)
