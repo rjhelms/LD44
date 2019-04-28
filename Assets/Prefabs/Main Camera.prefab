@@ -407,7 +407,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LIFE
+  m_Text: <color=#639bff>L</color><color=#ac3232>i</color><color=#fbf236>f</color><color=#6abe30>e</color>
 --- !u!1 &2144135291
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: -10}
-  targetShift: {x: 6, y: 6}
+  targetShift: {x: 6, y: 4}
   targetLerpSpeed: 12
 --- !u!1 &6288523399999232682
 GameObject:
