@@ -56,39 +56,10 @@ public class Capitalist : Enemy
         base.Update();
     }
 
-    private void Patrol()
+    protected override void PatrolDone()
     {
-        bool reachedEndOfPath = false;
-        float distanceToWaypoint;
-        while (true)
-        {
-            distanceToWaypoint = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
-            if (distanceToWaypoint < nextWaypointDistance)
-            {
-                if (currentWaypoint + 1 < path.vectorPath.Count)
-                {
-                    currentWaypoint++;
-                }
-                else
-                {
-                    reachedEndOfPath = true;
-                    path = null; // get rid of the path to be sure
-                    break;
-                }
-            }
-            else
-            {
-                break;
-            }
-        }
-        if (!reachedEndOfPath)
-        {
-            moveVector = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
-        }
-        else
-        {
-            targetCereal = null;    // clear target cereal
-        }
+        base.PatrolDone();
+        targetCereal = null;    // clear target cereal
     }
 }
 
