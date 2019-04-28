@@ -58,13 +58,6 @@ public class Clerk : Enemy
     [SerializeField]
     Sprite downSprite;
 
-    [Header("Pathfinding Settings")]
-    [SerializeField]
-    private float nextWaypointDistance = 0.5f;
-
-    private Path path;
-    private int currentWaypoint = 0;
-
     protected override void Start()
     {
         base.Start();
@@ -288,13 +281,6 @@ public class Clerk : Enemy
             }
         }
         nextLookTime = Time.time + lookTime;
-    }
-
-    private void OnPathComplete(Path p)
-    {
-        Debug.Log("Yay, we got a path back. Did it have an error? " + p.error);
-        path = p;
-        currentWaypoint = 0;
     }
 
     private void StartPatrol()
