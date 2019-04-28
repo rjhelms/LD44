@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
                 }
                 break;
             case GameState.RUNNING:
-                if (cerealRemaining == 0)
+                if (cerealRemaining <= 0)
                 {
                     Time.timeScale = 0;
                     currentFadeTime = 0;
