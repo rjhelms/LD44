@@ -50,10 +50,11 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public void AddLife(int value)
     {
-        life += value;
-        if (life > MaxLife)
+        int newLife = life + value;
+        if (newLife > MaxLife)
         {
-            MaxLife = life;
+            MaxLife = newLife;
         }
+        life += value;
     }
 }

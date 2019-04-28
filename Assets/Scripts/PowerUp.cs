@@ -21,7 +21,7 @@ public class PowerUp : MonoBehaviour
         Debug.Log(collision);
         if (collision.gameObject.tag == "Player")
         {
-            ScoreManager.Instance.Life += valueLife;
+            ScoreManager.Instance.AddLife(valueLife);
             ScoreManager.Instance.Mans += valueMans;
             ScoreManager.Instance.Score += valueScore;
             Destroy(gameObject);
