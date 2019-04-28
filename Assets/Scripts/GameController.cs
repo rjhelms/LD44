@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using UnityEngine.UI;
+using Pathfinding;
 
 public enum GameState
 {
@@ -30,6 +31,11 @@ public class GameController : MonoBehaviour
     private Color lifeDefaultColor;
     [SerializeField]
     private Color lifeWarningColor;
+
+    [SerializeField]
+    private GameObject[] levels;
+    [SerializeField]
+    private bool instantiateLevel;
 
     [SerializeField]
     private int mansUnit = 9;
@@ -101,6 +107,11 @@ public class GameController : MonoBehaviour
 
     void SetupLevel()
     {
+        if (instantiateLevel)
+        {
+            Instantiate(levels[ScoreManager.Instance.Level - 1], Vector3.zero, Quaternion.identity);
+        }
+        AstarPath.active.Scan();
         Transform player = FindObjectOfType<PlayerController>().transform;
         mainCamera.transform.position = new Vector3(player.position.x, player.position.y, -10);
         mainCamera.GetComponent<CameraController>().targetPosition = mainCamera.transform.position;
