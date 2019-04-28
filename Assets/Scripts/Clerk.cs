@@ -134,7 +134,7 @@ public class Clerk : Enemy
         {
             // do a raycast to see if we can still see player
             Vector2 lookDirection = ((Vector2)GameObject.FindGameObjectWithTag("Player").transform.position
-                                        + new Vector2(0.5f, 1.0f)   // ugly offset to look at player's CoM
+                                        + new Vector2(0f, 0.65f)   // ugly offset to look at player's CoM
                                         - (Vector2)lookSource.position).normalized;
             Debug.DrawRay(lookSource.position, lookDirection * lookDistance / 2, Color.white, 0.5f);
             List<RaycastHit2D> results = new List<RaycastHit2D>();
