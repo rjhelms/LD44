@@ -46,6 +46,8 @@ public class Clerk : Enemy
         switch (state)
         {
             case ClerkState.PATROL:
+                if (Time.time >= nextLookTime)
+                    Look();
                 break;
             case ClerkState.ALERT:
                 break;
@@ -57,8 +59,7 @@ public class Clerk : Enemy
         }
 
         alertRenderer.sprite = alertSprite[(int)state];
-        if (Time.time >= nextLookTime)
-            Look();
+
         base.Update();
     }
 
@@ -109,7 +110,7 @@ public class Clerk : Enemy
         Vector2 rotatedVector = Vector2.zero;
         rotatedVector.x = lookVector.x * c - lookVector.y * s;
         rotatedVector.y = lookVector.x * s + lookVector.y * c;
-        rotatedVector = rotatedVector.normalized * lookDistance;
+        rotatedVector = rotatedVector.normalized;
 
         Debug.DrawLine(lookSource.position, lookSource.position + (Vector3)rotatedVector);
 
@@ -118,7 +119,16 @@ public class Clerk : Enemy
         {
             lookStep *= -1;
         }
-
+        RaycastHit2D raycastHit = Physics2D.Raycast(lookSource.position, rotatedVector, lookDistance, lookLayerMask);
+        if (raycastHit.collider != null)
+        {
+            Debug.Log("raycast hit");
+            if (raycastHit.collider.gameObject.layer == 8)
+            {
+                if (raycastHit.collider.transform.parent.tag == "Player")
+                    SetState(ClerkState.ALERT);
+            }
+        }
         nextLookTime = Time.time + lookTime;
     }
 }
