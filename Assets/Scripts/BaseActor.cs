@@ -104,7 +104,6 @@ public class BaseActor : MonoBehaviour
         {
             spriteRenderer.sprite = idleSprites[(int)direction];
             idxSprite = 0;
-            Debug.Log(gameObject + " idle");
         }
         else
         {
