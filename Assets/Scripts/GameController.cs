@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using UnityEngine.UI;
-using Pathfinding;
 
 public enum GameState
 {
@@ -109,7 +106,8 @@ public class GameController : MonoBehaviour
                     {
                         ScoreManager.Instance.Level++;
                         SceneManager.LoadScene("Main");
-                    } else
+                    }
+                    else
                     {
                         Debug.Log("You win!");
                         // TODO: go to win screen
@@ -151,13 +149,21 @@ public class GameController : MonoBehaviour
     void UpdateUI()
     {
         canvasUI.GetComponent<CanvasScaler>().scaleFactor = mainCamera.GetComponent<PixelPerfectCamera>().pixelRatio * 2;
-        lifeBar.rectTransform.localScale = new Vector3(ScoreManager.Instance.Life, 1, 1);
+        if (ScoreManager.Instance.Life > 0)
+        {
+            lifeBar.rectTransform.localScale = new Vector3(ScoreManager.Instance.Life, 1, 1);
+        }
+        else
+        {
+            lifeBar.rectTransform.localScale = new Vector3(ScoreManager.Instance.Life, 1, 1);
+        }
         scoreText.text = ScoreManager.Instance.Score.ToString();
         mansImage.rectTransform.sizeDelta = new Vector2(mansUnit * ScoreManager.Instance.Mans, 8);
         if (ScoreManager.Instance.Life <= 5)
         {
             lifeBar.color = lifeWarningColor;
-        } else
+        }
+        else
         {
             lifeBar.color = lifeDefaultColor;
         }
