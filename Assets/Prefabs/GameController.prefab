@@ -43,4 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c1fe7f52d0bec439ef44a1a544bf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CerealRemaining: 0
+  canvasUI: {fileID: 0}
+  fadeTime: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  cerealRemaining: 0
+  state: 0

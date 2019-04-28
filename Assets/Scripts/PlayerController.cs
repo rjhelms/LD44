@@ -12,9 +12,11 @@ public class PlayerController : BaseActor
     [SerializeField]
     private int ProjectileLifeMin = 5;
 
+    private GameController controller;
     // Start is called before the first frame update
     protected override void Start()
     {
+        controller = FindObjectOfType<GameController>();
         base.Start();
 
     }
@@ -22,7 +24,8 @@ public class PlayerController : BaseActor
     // Update is called once per frame
     protected override void Update()
     {
-        ProcessInput();
+        if (controller.State == GameState.RUNNING)
+            ProcessInput();
         base.Update();
     }
 
