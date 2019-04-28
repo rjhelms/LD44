@@ -92,14 +92,45 @@ public class GameController : MonoBehaviour
                     currentFadeTime = 0;
                     State = GameState.WIN;
                 }
+                if (ScoreManager.Instance.Life <= 0)
+                {
+                    Time.timeScale = 0;
+                    currentFadeTime = 0;
+                    ScoreManager.Instance.Mans--;
+                    State = GameState.LOSE;
+                }
                 break;
             case GameState.WIN:
                 currentFadeTime += Time.unscaledDeltaTime;
                 fadeCover.color = Color.Lerp(Color.clear, fadeColor, currentFadeTime / fadeTime);
                 if (currentFadeTime >= fadeTime)
                 {
-                    ScoreManager.Instance.Level++;
-                    SceneManager.LoadScene("Main");
+                    if (ScoreManager.Instance.Level < levels.Length)
+                    {
+                        ScoreManager.Instance.Level++;
+                        SceneManager.LoadScene("Main");
+                    } else
+                    {
+                        Debug.Log("You win!");
+                        // TODO: go to win screen
+                    }
+                }
+                break;
+            case GameState.LOSE:
+                currentFadeTime += Time.unscaledDeltaTime;
+                fadeCover.color = Color.Lerp(Color.clear, fadeColor, currentFadeTime / fadeTime);
+                if (currentFadeTime >= fadeTime)
+                {
+                    if (ScoreManager.Instance.Mans >= 0)
+                    {
+                        ScoreManager.Instance.Die(); ;
+                        SceneManager.LoadScene("Main");
+                    }
+                    else
+                    {
+                        Debug.Log("You lose!");
+                        // TODO: go to win screen
+                    }
                 }
                 break;
         }

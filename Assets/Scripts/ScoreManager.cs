@@ -46,7 +46,6 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         MaxLife = 20;
         life = MaxLife;
-        Mans -= 1;
     }
 
     public void AddLife(int value)
