@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
         fadeCover.color = fadeColor;
         mainCamera = FindObjectOfType<Camera>();
         canvasUI = GameObject.Find("UICanvas").GetComponent<Canvas>();
+        SetupLevel();
         UpdateUI();
     }
 
@@ -96,6 +97,13 @@ public class GameController : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    void SetupLevel()
+    {
+        Transform player = FindObjectOfType<PlayerController>().transform;
+        mainCamera.transform.position = new Vector3(player.position.x, player.position.y, -10);
+        mainCamera.GetComponent<CameraController>().targetPosition = mainCamera.transform.position;
     }
 
     void UpdateUI()

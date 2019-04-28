@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
 
     [SerializeField]
-    private Vector3 targetPosition = new Vector3(0,0,-10);
+    public Vector3 targetPosition = new Vector3(0,0,-10);
     [SerializeField]
     private Vector2 targetShift = new Vector2(8, 6);
     [SerializeField]
