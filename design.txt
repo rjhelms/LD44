@@ -35,8 +35,7 @@ Capitalist - threat
 
 to do
 -----
-- actor prefabs
-	- move everything so anchor is centre of terrain collider
+
 - sprites
 	- fix hat in side views - E gets N hat
 	- fit head bob in N walk (should be 1px, is 2)
@@ -49,4 +48,4 @@ to do
 
 - capitalist
 	- improve collision behaviour
-	- implement projectile damane - both hit and receive
+

@@ -25,6 +25,12 @@ public class Capitalist : Enemy
     [SerializeField]
     private float wanderAmount;
 
+    [Header("Down Settings")]
+    [SerializeField]
+    float downTime;
+    [SerializeField]
+    Sprite downSprite;
+
     [Header("Projectile Settings")]
     [SerializeField]
     private GameObject ProjectilePrefab;
@@ -38,6 +44,7 @@ public class Capitalist : Enemy
     private float projectileVectorFudge = 0.1f;
 
     private float nextFireTime;
+    private float nextStateChangeTime;
 
     protected override void Start()
     {
@@ -86,6 +93,18 @@ public class Capitalist : Enemy
                     {
                         FireProjectile();
                     }
+                }
+                break;
+            case CapitalistState.DOWN:
+                moveVector = Vector2.zero;
+                if (Time.time > nextStateChangeTime)
+                {
+                    foreach (Collider2D c in GetComponentsInChildren<Collider2D>())
+                    {
+                        c.enabled = true;
+                    }
+                    updateSprites = true;
+                    Wander();
                 }
                 break;
         }
@@ -157,6 +176,18 @@ public class Capitalist : Enemy
         Vector2 wanderVector = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         wanderVector *= wanderAmount;
         seeker.StartPath(transform.position, transform.position + (Vector3)wanderVector, OnPathComplete);
+    }
+
+    public override void Hit(int damage)
+    {
+        state = CapitalistState.DOWN;
+        foreach (Collider2D c in GetComponentsInChildren<Collider2D>())
+        {
+            c.enabled = false;
+        }
+        nextStateChangeTime = Time.time + downTime;
+        updateSprites = false;
+        spriteRenderer.sprite = downSprite;
     }
 }
 
