@@ -96,10 +96,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveVector: {x: 0, y: 0}
   parent: {fileID: 0}
-  moveSpeed: 5
+  moveSpeed: 8
   damage: 1
   targetTag: Enemy
-  lifespanTime: 2.5
+  lifespanTime: 1.2
 --- !u!50 &2886218702294398842
 Rigidbody2D:
   serializedVersion: 4

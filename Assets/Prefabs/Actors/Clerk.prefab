@@ -295,10 +295,10 @@ MonoBehaviour:
   state: 0
   alertRenderer: {fileID: 707529276}
   stateMoveSpeeds:
-  - 1
-  - 1.9
-  - 1
-  - 1
+  - 1.5
+  - 3
+  - 1.5
+  - 1.5
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}

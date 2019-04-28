@@ -126,7 +126,7 @@ MonoBehaviour:
     - {fileID: -4435021474202782002, guid: 68628207bd9b086409cdc4ebb5d1ac41, type: 3}
   animTime: 0.3
   direction: 0
-  moveSpeed: 1.5
+  moveSpeed: 2.5
   moveVector: {x: 0, y: 0}
   updateSprites: 1
   nextWaypointDistance: 0.5

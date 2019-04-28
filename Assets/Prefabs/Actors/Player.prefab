@@ -202,7 +202,7 @@ MonoBehaviour:
     - {fileID: -6075286355354604478, guid: dea5e42ba04d2cd4fa2a8787d67631a9, type: 3}
   animTime: 0.3
   direction: 0
-  moveSpeed: 2
+  moveSpeed: 3
   moveVector: {x: 0, y: 0}
   updateSprites: 1
   ProjectilePrefab: {fileID: 4749138653372906413, guid: 8a0a943d6f2ccd440b61c8456df469c9,
