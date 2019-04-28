@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7049360825773628341}
   - component: {fileID: 7049360825773628343}
   - component: {fileID: 7049360825773628336}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cereal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
