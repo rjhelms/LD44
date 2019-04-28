@@ -6,6 +6,7 @@ enum ClerkState
     PATROL,
     ALERT,
     CONFUSED,
+    DOWN,
     INVALID
 }
 
@@ -90,6 +91,15 @@ public class Clerk : Enemy
                 direction = Direction.SOUTH;
                 if (Time.time > nextStateChangeTime)
                     SetState(ClerkState.PATROL);
+                break;
+            case ClerkState.DOWN:
+                moveVector = Vector2.zero;
+                if (Time.time > nextStateChangeTime)
+                    foreach (Collider c in GetComponents<Collider>())
+                    {
+                        c.enabled = true;
+                    }
+                SetState(ClerkState.PATROL);
                 break;
             default:
                 SetState(ClerkState.PATROL);
@@ -189,6 +199,15 @@ public class Clerk : Enemy
                 nextStateChangeTime = Time.time + ConfuseTime;
                 moveSpeed = stateMoveSpeeds[(int)ClerkState.CONFUSED];
                 state = ClerkState.CONFUSED;
+                break;
+            case ClerkState.DOWN:
+                nextStateChangeTime = Time.time + ConfuseTime;
+                moveSpeed = stateMoveSpeeds[(int)ClerkState.DOWN];
+                foreach (Collider c in GetComponents<Collider>())
+                {
+                    c.enabled = true;
+                }
+                state = ClerkState.DOWN;
                 break;
             default:
                 Debug.Log("Invalid state! " + newState);

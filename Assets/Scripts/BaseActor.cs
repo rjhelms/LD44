@@ -37,7 +37,7 @@ public class BaseActor : MonoBehaviour
     float nextSpriteChangeTime;
     SpriteRenderer spriteRenderer;
     int idxSprite = 0;
-    Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     // Start is called before the first frame update
     protected virtual void Start()
