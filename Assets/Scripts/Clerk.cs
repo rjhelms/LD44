@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Pathfinding;
 using UnityEngine;
-
+using System.Collections.Generic;
 enum ClerkState
 {
     PATROL,
@@ -20,6 +19,9 @@ public class Clerk : Enemy
     private SpriteRenderer alertRenderer;
 
     [SerializeField]
+    private float[] stateMoveSpeeds;
+
+    [SerializeField]
     private float lookCurrentAngle;
     [SerializeField]
     private float lookDistance;
@@ -35,6 +37,12 @@ public class Clerk : Enemy
     Transform lookSource;
 
     private float nextLookTime;
+
+    [SerializeField]
+    private float nextWaypointDistance = 0.5f;
+    private Path path;
+    private int currentWaypoint = 0;
+
     protected override void Start()
     {
         nextLookTime = Time.time + nextLookTime;
@@ -50,6 +58,14 @@ public class Clerk : Enemy
                     Look();
                 break;
             case ClerkState.ALERT:
+                if (path != null)
+                {
+                    Chase();
+                }
+                else
+                {
+                    moveVector = Vector2.zero;
+                }
                 break;
             case ClerkState.CONFUSED:
                 break;
@@ -63,26 +79,64 @@ public class Clerk : Enemy
         base.Update();
     }
 
+    private void Chase()
+    {
+        bool reachedEndOfPath = false;
+        float distanceToWaypoint;
+        while (true)
+        {
+            distanceToWaypoint = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distanceToWaypoint < nextWaypointDistance)
+            {
+                if (currentWaypoint + 1 < path.vectorPath.Count)
+                {
+                    currentWaypoint++;
+                }
+                else
+                {
+                    SetState(ClerkState.PATROL);
+                    reachedEndOfPath = true;
+                    path = null; // get rid of the path to be sure
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+        if (!reachedEndOfPath)
+        {
+            path = null;
+            moveVector = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
+        }
+    }
+
     private void SetState(ClerkState newState)
     {
+        moveVector = Vector2.zero;
         // put logic to set up states in here
         switch (newState)
         {
             case ClerkState.PATROL:
+                moveSpeed = stateMoveSpeeds[(int)ClerkState.PATROL];
                 state = ClerkState.PATROL;
                 break;
             case ClerkState.ALERT:
+                moveSpeed = stateMoveSpeeds[(int)ClerkState.ALERT];
                 state = ClerkState.ALERT;
                 break;
             case ClerkState.CONFUSED:
+                moveSpeed = stateMoveSpeeds[(int)ClerkState.CONFUSED];
                 state = ClerkState.CONFUSED;
                 break;
             default:
                 Debug.Log("Invalid state! " + newState);
                 break;
-            
+
         }
     }
+
     private void Look()
     {
         Vector2 lookVector;
@@ -119,16 +173,34 @@ public class Clerk : Enemy
         {
             lookStep *= -1;
         }
-        RaycastHit2D raycastHit = Physics2D.Raycast(lookSource.position, rotatedVector, lookDistance, lookLayerMask);
-        if (raycastHit.collider != null)
+        List<RaycastHit2D> results = new List<RaycastHit2D>();
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(lookLayerMask);
+        int resultCount = Physics2D.Raycast(lookSource.position, rotatedVector, filter, results, lookDistance);
+        if (resultCount > 0)
         {
-            Debug.Log("raycast hit");
-            if (raycastHit.collider.gameObject.layer == 8)
+            for (int i = 0; i < resultCount; i++)
             {
-                if (raycastHit.collider.transform.parent.tag == "Player")
+                if (results[i].fraction > 0                                   // not our own collider...
+                    && results[i].collider.gameObject.layer == 8              // and on the RaycastTarget layer...
+                    && results[i].collider.transform.parent.tag == "Player")  // and is the player...
+                {
+
                     SetState(ClerkState.ALERT);
+                    Seeker seeker = GetComponent<Seeker>();
+                    seeker.StartPath(transform.position, results[i].collider.transform.position, OnPathComplete);
+                    break;
+
+                }
             }
         }
         nextLookTime = Time.time + lookTime;
+    }
+
+    private void OnPathComplete(Path p)
+    {
+        Debug.Log("Yay, we got a path back. Did it have an error? " + p.error);
+        path = p;
+        currentWaypoint = 0;
     }
 }

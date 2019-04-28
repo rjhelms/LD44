@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267482388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1526456543451436495}
@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 1526456543451436492}
   - component: {fileID: 1526456543451436490}
   - component: {fileID: 1526456543451436493}
+  - component: {fileID: 167375325}
   m_Layer: 0
   m_Name: Clerk
   m_TagString: Enemy
@@ -291,15 +292,21 @@ MonoBehaviour:
   - {fileID: -299690340437171572, guid: 2d861be550250e242ba1d5dce0d9f8fc, type: 3}
   - {fileID: 0}
   alertRenderer: {fileID: 707529276}
+  stateMoveSpeeds:
+  - 1
+  - 2
+  - 1
+  - 0
   lookCurrentAngle: 0
   lookDistance: 5
-  lookFOV: 30
+  lookFOV: 45
   lookStep: 10
   lookTime: 0.5
   lookLayerMask:
     serializedVersion: 2
     m_Bits: 768
   lookSource: {fileID: 964089178}
+  nextWaypointDistance: 0.5
 --- !u!50 &1526456543451436490
 Rigidbody2D:
   serializedVersion: 4
@@ -312,7 +319,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.5820632
+  m_Mass: 0.58206326
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -337,3 +344,31 @@ CapsuleCollider2D:
   m_Offset: {x: 0.5, y: 0.35}
   m_Size: {x: 0.5, y: 0.5}
   m_Direction: 0
+--- !u!114 &167375325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526456543451436481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
