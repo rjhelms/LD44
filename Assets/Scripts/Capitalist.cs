@@ -24,6 +24,8 @@ public class Capitalist : Enemy
     [Header("Wander Settings")]
     [SerializeField]
     private float wanderAmount;
+    [SerializeField]
+    private float maxWanderWaitTime;
 
     [Header("Down Settings")]
     [SerializeField]
@@ -45,6 +47,7 @@ public class Capitalist : Enemy
 
     private float nextFireTime;
     private float nextStateChangeTime;
+    private float wanderWait;
 
     protected override void Start()
     {
@@ -166,15 +169,17 @@ public class Capitalist : Enemy
         if (collision.gameObject.tag == "Enemy")
         {
             Wander();
+            wanderWait = Time.time + Random.Range(0, maxWanderWaitTime);
         }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         // if we're still hitting another enemy, and we got a path back, try again
-        if (collision.gameObject.tag == "Enemy" && path != null)
+        if (collision.gameObject.tag == "Enemy" && Time.time > wanderWait && path != null)
         {
             Wander();
+            wanderWait = Time.time + Random.Range(0, maxWanderWaitTime);
         }
     }
 
