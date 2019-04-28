@@ -97,7 +97,7 @@ MonoBehaviour:
   moveVector: {x: 0, y: 0}
   parent: {fileID: 0}
   moveSpeed: 6
-  damage: 2
+  damage: 5
   targetTag: Player
   lifespanTime: 1
 --- !u!50 &4532258481919526141

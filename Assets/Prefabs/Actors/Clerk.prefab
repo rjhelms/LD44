@@ -292,6 +292,7 @@ MonoBehaviour:
   - {fileID: -2978653956524333172, guid: 2d861be550250e242ba1d5dce0d9f8fc, type: 3}
   - {fileID: -299690340437171572, guid: 2d861be550250e242ba1d5dce0d9f8fc, type: 3}
   - {fileID: 0}
+  hitDamage: 3
   state: 0
   alertRenderer: {fileID: 707529276}
   stateMoveSpeeds:
