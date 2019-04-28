@@ -72,6 +72,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         UpdateUI();
         switch (State)
         {
@@ -111,8 +115,7 @@ public class GameController : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("You win!");
-                        // TODO: go to win screen
+                        SceneManager.LoadScene("Win");
                     }
                 }
                 break;
@@ -128,8 +131,7 @@ public class GameController : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("You lose!");
-                        // TODO: go to win screen
+                        SceneManager.LoadScene("Lose");
                     }
                 }
                 break;
