@@ -12,6 +12,17 @@ public class PlayerController : BaseActor
     [SerializeField]
     private int ProjectileLifeMin = 5;
 
+    [Header("Hit Settings")]
+    [SerializeField]
+    private bool isInvulnerable;
+    [SerializeField]
+    private float flashTime;
+    [SerializeField]
+    private float invulnerableTime;
+
+    private float invulnurableEndTime;
+    private float nextFlashTime;
+
     private GameController controller;
     // Start is called before the first frame update
     protected override void Start()
@@ -25,7 +36,22 @@ public class PlayerController : BaseActor
     protected override void Update()
     {
         if (controller.State == GameState.RUNNING)
+        {
             ProcessInput();
+            if (isInvulnerable)
+            {
+                if (Time.time > nextFlashTime)
+                {
+                    spriteRenderer.enabled = !spriteRenderer.enabled;
+                    nextFlashTime += flashTime;
+                }
+                if (Time.time > invulnurableEndTime)
+                {
+                    isInvulnerable = false;
+                    spriteRenderer.enabled = true;
+                }
+            }
+        }
         base.Update();
     }
 
@@ -99,5 +125,18 @@ public class PlayerController : BaseActor
                     break;
             }
         }
+    }
+
+    public override void Hit(int damage)
+    {
+        if (!isInvulnerable)
+        {
+            isInvulnerable = true;
+            invulnurableEndTime = Time.time + invulnerableTime;
+            nextFlashTime = Time.time + flashTime;
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            ScoreManager.Instance.Life -= damage;
+        }
+        base.Hit(damage);
     }
 }
