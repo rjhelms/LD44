@@ -96,10 +96,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveVector: {x: 0, y: 0}
   parent: {fileID: 0}
-  moveSpeed: 6
+  moveSpeed: 8
   damage: 5
   targetTag: Player
-  lifespanTime: 1
+  lifespanTime: 0.8
 --- !u!50 &4532258481919526141
 Rigidbody2D:
   serializedVersion: 4

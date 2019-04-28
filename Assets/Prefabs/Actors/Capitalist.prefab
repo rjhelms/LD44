@@ -126,12 +126,13 @@ MonoBehaviour:
     - {fileID: -4435021474202782002, guid: 68628207bd9b086409cdc4ebb5d1ac41, type: 3}
   animTime: 0.3
   direction: 0
-  moveSpeed: 2.5
+  moveSpeed: 3.5
   moveVector: {x: 0, y: 0}
   updateSprites: 1
   nextWaypointDistance: 0.5
   state: 0
   targetCereal: {fileID: 0}
+  foundCereal: 0
   wanderAmount: 3
   maxWanderWaitTime: 1
   downTime: 3
@@ -139,9 +140,9 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 6269131613957146666, guid: 0c8843807217bbf45b8f2fa3d7493f90,
     type: 3}
   ProjectileSource: {fileID: 3433351427970825773}
-  fireChance: 0.25
-  fireTime: 0.5
-  projectileVectorFudge: 0.1
+  fireChance: 0.33
+  fireTime: 0.33
+  projectileVectorFudge: 0.15
 --- !u!70 &8865498549809703171
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

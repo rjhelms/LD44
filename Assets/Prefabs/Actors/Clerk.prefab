@@ -296,10 +296,10 @@ MonoBehaviour:
   state: 0
   alertRenderer: {fileID: 707529276}
   stateMoveSpeeds:
-  - 2
-  - 3.2
-  - 2
-  - 2
+  - 2.5
+  - 4.4
+  - 2.5
+  - 2.5
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -307,7 +307,7 @@ MonoBehaviour:
   lookDistance: 5
   lookFOV: 40
   lookStep: 10
-  lookTime: 0.2
+  lookTime: 0.1
   lookLayerMask:
     serializedVersion: 2
     m_Bits: 768
