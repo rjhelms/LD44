@@ -13,7 +13,8 @@ enum CapitalistState
 
 public class Capitalist : Enemy
 {
-
+    [SerializeField]
+    private int hitDamage = 2;
     [Header("State Machine Settings")]
     [SerializeField]
     private CapitalistState state;
@@ -176,6 +177,10 @@ public class Capitalist : Enemy
         {
             Wander();
             wanderWait = Time.time + Random.Range(0, maxWanderWaitTime);
+        }
+        else if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponentInParent<BaseActor>().Hit(hitDamage);
         }
     }
 
