@@ -210,6 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 242726176}
   - component: {fileID: 242726175}
+  - component: {fileID: 242726177}
   m_Layer: 0
   m_Name: ScreenController
   m_TagString: Untagged
@@ -248,6 +249,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &242726177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242726174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee339dc314dc9bd4094ee20249e3464b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicPrefab: {fileID: 4785550417275764085, guid: e6b9f6144b8bf2740a4e5f918a22f220,
+    type: 3}
 --- !u!114 &654400699185070860
 MonoBehaviour:
   m_ObjectHideFlags: 0
