@@ -137,16 +137,18 @@ public class PlayerController : BaseActor
             nextFlashTime = Time.time + flashTime;
             spriteRenderer.enabled = !spriteRenderer.enabled;
             ScoreManager.Instance.Life -= damage;
+            if (ScoreManager.Instance.Life > 0)
+            {
+                GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
+                controller.PlaySound(controller.PlayerHitSound);
+            }
+            else
+            {
+                GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
+                controller.PlaySound(controller.LevelLoseSound);
+            }
         }
-        if (ScoreManager.Instance.Life > 0)
-        {
-            GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
-            controller.PlaySound(controller.PlayerHitSound);
-        } else
-        {
-            GameController controller = GameObject.Find("GameController").GetComponent<GameController>();
-            controller.PlaySound(controller.LevelLoseSound);
-        }
+
         base.Hit(damage);
     }
 }
