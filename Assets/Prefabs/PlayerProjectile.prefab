@@ -99,7 +99,7 @@ MonoBehaviour:
   moveSpeed: 10
   damage: 1
   targetTag: Enemy
-  lifespanTime: 1
+  lifespanTime: 1.2
 --- !u!50 &2886218702294398842
 Rigidbody2D:
   serializedVersion: 4
