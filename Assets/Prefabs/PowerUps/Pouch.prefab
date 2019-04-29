@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueMans: 0
-  valueLife: 5
+  valueLife: 10
   valueScore: 200
