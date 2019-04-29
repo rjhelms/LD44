@@ -35,6 +35,7 @@ public class ScreenController : MonoBehaviour
         canvasUI.GetComponent<CanvasScaler>().scaleFactor = mainCamera.GetComponent<PixelPerfectCamera>().pixelRatio * 2;
         fadeCover = GameObject.Find("FadeCover").GetComponent<RawImage>();
         fadeCover.color = fadeColor;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
