@@ -212,7 +212,7 @@ MonoBehaviour:
   ProjectileLifeMin: 5
   isInvulnerable: 0
   flashTime: 0.1
-  invulnerableTime: 2
+  invulnerableTime: 3
 --- !u!50 &7327550547758964406
 Rigidbody2D:
   serializedVersion: 4
