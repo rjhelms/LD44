@@ -74,4 +74,3 @@ sounds:
 bugs:
 	- negative taskbar
 	- mans pickup double counted
-	- mouse fires
