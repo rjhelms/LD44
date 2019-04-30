@@ -70,3 +70,11 @@ sounds:
 	- enemy hit - recorded - y
 	- level win - recorded - y
 	- level lose - recorded - y
+	
+bugs:
+	- duplicate music player
+	- negative taskbar
+	- terrain glitches:
+		- lvl 2, bottom right
+	- mans pickup double counted
+	- mouse fires
