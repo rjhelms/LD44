@@ -10,7 +10,7 @@ public class MusicStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicPlayer = GameObject.Find("MusicPlayer");
+        musicPlayer = GameObject.FindGameObjectWithTag("Music");
         if (musicPlayer == null)
         {
             musicPlayer = Instantiate(MusicPrefab);

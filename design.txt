@@ -72,7 +72,6 @@ sounds:
 	- level lose - recorded - y
 	
 bugs:
-	- duplicate music player
 	- negative taskbar
 	- terrain glitches:
 		- lvl 2, bottom right

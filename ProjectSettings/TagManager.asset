@@ -7,6 +7,7 @@ TagManager:
   - ScreenBounds
   - Enemy
   - Projectile
+  - Music
   layers:
   - Default
   - TransparentFX
