@@ -72,4 +72,4 @@ sounds:
 	- level lose - recorded - y
 	
 bugs:
-	- mans pickup double counted
+	- none? (lol)

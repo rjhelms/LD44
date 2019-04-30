@@ -10,6 +10,9 @@ public class PowerUp : MonoBehaviour
     private int valueLife;
     [SerializeField]
     private int valueScore;
+
+    private bool found = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +22,9 @@ public class PowerUp : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision);
-        if (collision.gameObject.tag == "Player")
+        if (!found && collision.gameObject.tag == "Player")
         {
+            found = true;
             ScoreManager.Instance.AddLife(valueLife);
             ScoreManager.Instance.Mans += valueMans;
             ScoreManager.Instance.Score += valueScore;
