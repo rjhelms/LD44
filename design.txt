@@ -73,7 +73,5 @@ sounds:
 	
 bugs:
 	- negative taskbar
-	- terrain glitches:
-		- lvl 2, bottom right
 	- mans pickup double counted
 	- mouse fires
