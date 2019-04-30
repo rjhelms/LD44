@@ -72,5 +72,4 @@ sounds:
 	- level lose - recorded - y
 	
 bugs:
-	- negative taskbar
 	- mans pickup double counted

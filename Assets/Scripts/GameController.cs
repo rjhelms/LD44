@@ -174,7 +174,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            lifeBar.rectTransform.localScale = new Vector3(ScoreManager.Instance.Life, 1, 1);
+            lifeBar.rectTransform.localScale = new Vector3(0, 1, 1);
         }
         scoreText.text = ScoreManager.Instance.Score.ToString();
         mansImage.rectTransform.sizeDelta = new Vector2(mansUnit * ScoreManager.Instance.Mans, 8);
